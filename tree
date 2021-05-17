@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="./fontawesome/css/all.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="https://pixedcorp.com/wp-content/uploads/2020/08/logo_digital_pixed.png" type="image/x-icon">
+    <title>Pixed</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-main>
+                <v-row justify="center" align="center" class="header">
+                    <img src="./images/logo.png" max-height="150"></img>
+                    <p class="title">PIXED CORP</p>
+                </v-row>
+                <v-row>
+                    <v-col cols="12" v-for="(item, key) in items" :key="key">
+                        <div class="capsule" v-on:click="getLink(item.url)">
+                            <span class="capsule-text" v-text="item.title"></span>
+                        </div>
+                    </v-col>
+                </v-row>
+                <v-row justify="center" style="margin-top:50px">
+                    <v-btn fab small elevation="0" color="white"
+                        href="https://api.whatsapp.com/send?phone=51995778729&text=%C2%A1Hola!%20Deseo%20realizar%20una%20consulta."
+                        style="margin-right:10px">
+                        <i class="fab fa-whatsapp social-icon"></i>
+                    </v-btn>
+                    <v-btn fab small elevation="0" color="white" href="https://www.facebook.com/PIXEDCORP"
+                        style="margin-right:10px">
+                        <i class="fab fa-facebook social-icon"></i>
+                    </v-btn>
+                    <v-btn fab small elevation="0" color="white"
+                        href="https://www.youtube.com/channel/UCHsJWuumxtm9wVOBpewHNGA" style="margin-right:10px">
+                        <i class="fab fa-youtube social-icon"></i>
+                    </v-btn>
+                    <v-btn fab small elevation="0" color="white" href="https://twitter.com/PixedCorp"
+                        style="margin-right:10px">
+                        <i class="fab fa-twitter social-icon"></i>
+                    </v-btn>
+                </v-row>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+            data() {
+                return {
+                    items: [
+                        { title: "Prótesis", url: "https://pixedcorp.com/protesis-de-mano-brazo/" },
+                        { title: "Web", url: "https://pixedcorp.com/" },
+                        { title: "Último #Psicomiércoles", url: "https://pixedcorp.com/blog/" },
+                        { title: "Preguntas Frecuentes", url: "https://pixedcorp.com/preguntas-frecuentes/" },
+                    ],
+                }
+            },
+            methods: {
+                getLink: function (url) {
+                    window.open(url, "_blank");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+<style>
+    #app {
+        background-color: #8D2375;
+    }
+
+    .header {
+        background-image: url("./images/frame.png");
+        height: 300px;
+    }
+
+    .title {
+        color: white;
+        font-size: 18px;
+        position: absolute;
+        top: 220px;
+    }
+
+    .capsule {
+        background-color: white;
+        border-radius: 20px;
+        height: 32px;
+        width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .capsule:hover {
+        color: #8D2375;
+    }
+
+    .capsule-text {
+        font-size: 19px;
+        font-weight: 600;
+    }
+
+    .social-icon {
+        color: #8D2375;
+        font-size: 20px;
+    }
+</style>
